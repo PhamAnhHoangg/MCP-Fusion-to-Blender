@@ -36,6 +36,7 @@ Latest first. Full details in [CHANGELOG.md](CHANGELOG.md).
 
 | Version | Type | What changed |
 | --- | --- | --- |
+| 0.2.6 | Added | Claude lists every design it creates in order, keeps test designs in a `testing` folder, and asks before closing unsaved tabs |
 | 0.2.5 | Fixed | Parts sketched on the XZ plane came out upside down and through-holes failed to cut: sketch direction is checked first and cuts go both ways |
 | 0.2.4 | Docs | README now lists the changelog |
 | 0.2.3 | Fixed | Opening a local file left a `*` (unsaved) tab: it is now uploaded into the project and opened as a saved design |

@@ -19,6 +19,12 @@ A new Fusion design opens as "Untitled" and is not saved anywhere until someone 
 7. **Open it as a saved design, not an import**: `importManager.importToNewDocument` builds a brand-new unsaved design, so the tab shows `*` (unsaved changes) the moment it opens. Instead, if the target project's root folder already holds a design with the file's name, open that with `app.documents.open(dataFile)`. Otherwise upload the file with `project.rootFolder.uploadFile(path)`, wait until `uploadState == adsk.core.UploadStates.UploadFinished`, then open the resulting `dataFile`. The design opens saved, named after the file, with no `*`.
 8. **No project to save into**: `app.data.activeProject` throws when the hub has no projects. Check `app.data.activeHub.dataProjects.count` first. If it is 0, ask the user for a project name and create it with `app.data.activeHub.dataProjects.add(name)`; never create one without asking. If they decline, import instead, set `doc.name` to the file name, and tell them the tab shows `*` because it is not saved yet.
 
+## Keep track of what Claude creates
+1. **Name every new tab**: each time you create or open a design, tell the user its name and its project and folder. Keep a numbered list in the order you made them ("Made by Claude: 1. test-bracket, 2. test-bracket-v2, ...") and show it again whenever it changes.
+2. **Closing tabs**: `doc.close(False)` closes without saving, so unsaved changes are lost. If `doc.isModified` is true, ask before closing; otherwise close freely.
+3. **Deleting designs**: delete only designs on that list or ones the user names, newest first unless told otherwise, and always ask first. A deleted design goes to Fusion's web Trash.
+4. **Test designs go in a `testing` folder**: anything made to try something out is saved into `<project>/testing` (create it with `rootFolder.dataFolders.add('testing')` if missing), never the project root. When the user says a test design is a keeper, move it out with `dataFile.move(project.rootFolder)`. When a round of tests ends, list the testing folder and offer to delete what is in it. In a new chat, the testing folder is the record of what was made for tests.
+
 ## Modelling workflow
 - Build parts as sketch + extrude. Sketch on existing faces when adding features.
 - Prefer a sketched circle + extrude cut over the Hole tool when exact control matters.

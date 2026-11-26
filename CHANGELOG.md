@@ -2,6 +2,13 @@
 
 Each change bumps the plugin version in `.claude-plugin/plugin.json`. Add a row to the README's Changelog table and rebuild the zip after every bump.
 
+## 0.2.6 (2026-11-26)
+
+### Added
+- Claude names every new tab and keeps a numbered list of the designs it made, in order, so it knows what to close or delete.
+- Test designs go into a `testing` folder in the project and are moved out when they become keepers; Claude offers to clear the folder after a round of tests.
+- Closing a tab with unsaved changes asks first.
+
 ## 0.2.5 (2026-11-26)
 
 ### Fixed
