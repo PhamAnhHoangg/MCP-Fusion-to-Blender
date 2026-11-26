@@ -1,0 +1,17 @@
+{
+  "name": "fusion-to-blender",
+  "version": "0.1.0",
+  "description": "Design parts in Autodesk Fusion with Claude, then stage, animate and render them in Blender for presentations and videos.",
+  "author": {
+    "name": "Hai"
+  },
+  "repository": "https://github.com/PhamAnhHoangg/MCP-Fusion-to-Blender",
+  "keywords": [
+    "fusion",
+    "blender",
+    "cad",
+    "3d-printing",
+    "mcp",
+    "animation"
+  ]
+}
