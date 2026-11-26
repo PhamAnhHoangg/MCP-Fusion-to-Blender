@@ -5,7 +5,7 @@ Each change bumps the plugin version in `.claude-plugin/plugin.json`. Rebuild th
 ## 0.2.0 (2026-11-26)
 
 ### Improved
-- Fusion design skill: right after creating a new project or design, Claude saves it under the requested name (no more "Untitled" designs). It uses a Fusion API script for the first save, because the Autodesk Fusion MCP's save operation cannot set a name. It then checks that the name stuck, and saves again after each major modelling step.
+- Fusion design skill: right after creating a new project or design, Claude saves it under the requested name (no more "Untitled" designs). It uses `doc.saveAs` into the chosen project (through the Fusion MCP's script tool when there is no named-save tool), checks that the name stuck, and saves again after each major modelling step.
 
 ## 0.1.0 (2026-11-26)
 
