@@ -2,6 +2,11 @@
 
 Each change bumps the plugin version in `.claude-plugin/plugin.json`. Add a row to the README's Changelog table and rebuild the zip after every bump.
 
+## 0.2.7 (2026-11-26)
+
+### Added
+- Project folders: every design is saved into `imports`, `parts`, `assemblies`, `print-ready` or `testing` inside its project, created on first use. Opened files are uploaded into `imports`; keepers move out of `testing` into the folder that fits.
+
 ## 0.2.6 (2026-11-26)
 
 ### Added
