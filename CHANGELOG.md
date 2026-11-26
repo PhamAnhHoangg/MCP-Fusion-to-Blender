@@ -2,6 +2,12 @@
 
 Each change bumps the plugin version in `.claude-plugin/plugin.json`. Add a row to the README's Changelog table and rebuild the zip after every bump.
 
+## 0.2.8 (2026-11-26)
+
+### Added
+- Find designs by part of their name across every project and folder, reported as `project/folder/name`.
+- Rename saved designs and open tabs on request, with a clash check and a naming style: `<project>-<component>-<large piece>-<version or date>`, with `_` joining words inside a field, e.g. `ip12-upper_ring_a-zed_wrist-v1`, so each part shows which final model it merges into.
+
 ## 0.2.7 (2026-11-26)
 
 ### Added

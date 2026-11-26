@@ -32,6 +32,11 @@ Every design goes into a folder inside its project, never loose in the project r
 
 If it is unclear which folder fits, ask. When a design changes role (a test becomes a keeper, a part passes the print checks), move it with `dataFile.move(targetFolder)` and say so. Never delete or rename folders without asking.
 
+## Finding and renaming designs
+- **Find**: walk every project in `app.data.activeHub` and every folder inside it, recursively, and match the text against `dataFile.name` (case-insensitive, part of the name is enough). Report each hit as `project/folder/name`. Use this over the MCP's document search, which can miss designs inside folders.
+- **Rename** only when the user asks: a saved design with `dataFile.name = new_name`, an unsaved tab with `doc.name = new_name`. First check that no other design in the same folder already has that name. Tell the user old name -> new name and update the list of designs Claude made.
+- **Naming style**, so every part shows which final model it merges into: `<project>-<component>-<large piece>-<version or date>`, all lowercase. Dashes `-` only separate the four fields; words inside one field are joined with underscores `_`, so each field reads as one name (`zed_wrist`, `upper_ring_a`). Project first, then the small component, then the large piece (assembly or final model) it belongs to, then `v1`, `v2`... for revisions or `YYYY-MM-DD` for a one-off snapshot. The large piece itself is `<project>-<large piece>-<version>`. Examples: `ip12-upper_ring_a-zed_wrist-v1`, `ip12-collar-zed_wrist-v2`, `ip12-zed_wrist-v1` (the assembly they merge into). Test designs use `test` as the component or large piece, e.g. `ip12-test-bracket-v1`. If the user's name is vague ("new part"), or it is unclear which project or large piece a part belongs to, ask, suggest a name in this style, and use it once they agree.
+
 ## Keep track of what Claude creates
 1. **Name every new tab**: each time you create or open a design, tell the user its name and its project and folder. Keep a numbered list in the order you made them ("Made by Claude: 1. test-bracket, 2. test-bracket-v2, ...") and show it again whenever it changes.
 2. **Closing tabs**: `doc.close(False)` closes without saving, so unsaved changes are lost. If `doc.isModified` is true, ask before closing; otherwise close freely.
