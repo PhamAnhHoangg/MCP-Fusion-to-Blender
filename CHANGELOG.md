@@ -2,6 +2,11 @@
 
 Each change bumps the plugin version in `.claude-plugin/plugin.json`. Rebuild the zip after every bump.
 
+## 0.2.2 (2026-11-26)
+
+### Fixed
+- Opening a file that is already open no longer imports a duplicate (shown by Fusion as "name (1)"): Claude switches to the open design instead.
+
 ## 0.2.1 (2026-11-26)
 
 ### Fixed

@@ -15,7 +15,7 @@ A new Fusion design opens as "Untitled" and is not saved anywhere until someone 
 3. **Name**: use exactly the name the user gave. If they gave none, ask for one; if they say any name is fine, use `design-YYYY-MM-DD-HHMM`.
 4. **Check**: read back the active document's name and confirm it is no longer "Untitled" and shows as saved. Tell the user the project and design name.
 5. After that, save again (`doc.save('<short description>')`) at the end of each major modelling step so the timeline is never lost.
-6. **Opening a local file** (STEP, STP, STL, IGES, F3D): Fusion imports it into a new design, which starts as "Untitled". Right after `importManager.importToNewDocument(...)`, set `doc.name` to the file name without its extension, then save it as in step 2 under that name.
+6. **Opening a local file** (STEP, STP, STL, IGES, F3D): first look through `app.documents` for an open design with the file's name; if one is there, activate it and stop, never import a second copy (Fusion would show it as "name (1)"). Otherwise Fusion imports it into a new design, which starts as "Untitled". Right after `importManager.importToNewDocument(...)`, set `doc.name` to the file name without its extension, then save it as in step 2 under that name.
 7. **No project to save into**: `app.data.activeProject` throws when the hub has no projects. Check `app.data.activeHub.dataProjects.count` first. If it is 0, keep the design named (step 6) but unsaved, and tell the user plainly that it is not saved yet and why. Offer to create a project; do not create one without asking.
 
 ## Modelling workflow
