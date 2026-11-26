@@ -2,6 +2,13 @@
 
 Each change bumps the plugin version in `.claude-plugin/plugin.json`. Add a row to the README's Changelog table and rebuild the zip after every bump.
 
+## 0.2.5 (2026-11-26)
+
+### Fixed
+- Parts sketched on the XZ plane no longer come out upside down: the skill checks which way the sketch faces before drawing and checks the bounding box after the first extrude.
+- Through-hole cuts are symmetric and target the body, so they no longer fail with "No target body found".
+- After a script fails halfway, Claude cleans up the half-made timeline features before retrying.
+
 ## 0.2.4 (2026-11-26)
 
 ### Docs

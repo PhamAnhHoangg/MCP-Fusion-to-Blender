@@ -22,6 +22,9 @@ A new Fusion design opens as "Untitled" and is not saved anywhere until someone 
 ## Modelling workflow
 - Build parts as sketch + extrude. Sketch on existing faces when adding features.
 - Prefer a sketched circle + extrude cut over the Hole tool when exact control matters.
+- **Sketch direction**: a sketch's own axes do not always match the model's. On the XZ construction plane, sketch +Y points to model -Z, so a profile drawn "up" in the sketch comes out upside down. Before drawing, check with `sketch.sketchToModelSpace(Point3D(0, 1, 0))` (minus the sketch origin) which model direction sketch +Y points, and draw so the part goes where asked (upright = +Z). After the first extrude, check the bounding box min and max, not only its size.
+- **Through cuts**: use `setAllExtent(SymmetricExtentDirection)` and set `participantBodies` to the target body, so a sketch whose normal faces the other way still cuts. A one-sided "all" cut fails with "No target body found" when it points away from the body.
+- **Failed script halfway**: list the timeline and delete the features it left behind before retrying, so no half-made sketches or cuts stay in the design.
 - Drive key sizes with user parameters (`length`, `width`, `wall`) and expressions (`length = width / 2`) so the design can be resized later.
 - Fully constrain sketches (dimensions, midpoint, horizontal/vertical, diameter) before extruding.
 - Use construction lines for reference geometry; they never form profiles.

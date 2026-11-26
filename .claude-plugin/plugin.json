@@ -1,6 +1,6 @@
 {
   "name": "fusion-to-blender",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Design parts in Autodesk Fusion with Claude, then stage, animate and render them in Blender for presentations and videos.",
   "author": {
     "name": "Hai"
