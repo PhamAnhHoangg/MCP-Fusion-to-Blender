@@ -28,7 +28,20 @@ Fusion is reached through Autodesk's own Fusion MCP server, which is built into 
 powershell -ExecutionPolicy Bypass -File scripts\build-plugin.ps1
 ```
 
-(or `scripts/build-plugin.sh` on macOS/Linux). After changing anything, bump `version` in `.claude-plugin/plugin.json`, add an entry to [CHANGELOG.md](CHANGELOG.md), rebuild, and re-add the plugin.
+(or `scripts/build-plugin.sh` on macOS/Linux). After changing anything, bump `version` in `.claude-plugin/plugin.json`, add an entry to [CHANGELOG.md](CHANGELOG.md) and a row to the Changelog table below, rebuild, and re-add the plugin.
+
+## Changelog
+
+Latest first. Full details in [CHANGELOG.md](CHANGELOG.md).
+
+| Version | Type | What changed |
+| --- | --- | --- |
+| 0.2.4 | Docs | README now lists the changelog |
+| 0.2.3 | Fixed | Opening a local file left a `*` (unsaved) tab: it is now uploaded into the project and opened as a saved design |
+| 0.2.2 | Fixed | Opening a file that was already open imported a duplicate ("name (1)"): Claude now switches to the open design |
+| 0.2.1 | Fixed | Opened files stayed "Untitled": the design is now named after the file. Hubs with no project no longer crash on `activeProject` |
+| 0.2.0 | Improved | New projects and designs are saved under the requested name right away, no more "Untitled" |
+| 0.1.0 | Added | First release: three skills, Blender MCP config, build scripts |
 
 ## Safety
 

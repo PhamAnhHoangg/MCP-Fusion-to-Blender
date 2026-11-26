@@ -1,6 +1,11 @@
 # Changelog
 
-Each change bumps the plugin version in `.claude-plugin/plugin.json`. Rebuild the zip after every bump.
+Each change bumps the plugin version in `.claude-plugin/plugin.json`. Add a row to the README's Changelog table and rebuild the zip after every bump.
+
+## 0.2.4 (2026-11-26)
+
+### Docs
+- README has a Changelog table listing every version and the issue it fixed.
 
 ## 0.2.3 (2026-11-26)
 
