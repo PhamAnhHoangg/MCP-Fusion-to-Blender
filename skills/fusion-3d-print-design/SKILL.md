@@ -1,11 +1,20 @@
 ---
 name: fusion-3d-print-design
-description: This skill should be used when designing, modifying or reviewing a part in Autodesk Fusion (Fusion 360), especially through the Fusion MCP server or for 3D printing, e.g. "model a bracket in Fusion", "make this printable", "add threads", "set up joints".
+description: This skill should be used when designing, modifying or reviewing a part in Autodesk Fusion (Fusion 360), especially through the Fusion MCP server or for 3D printing, e.g. "create a new project or design in Fusion", "model a bracket in Fusion", "make this printable", "add threads", "set up joints".
 ---
 
 # Designing in Fusion for 3D printing
 
 Follow these rules when building or reviewing a Fusion design. They come from Hai's "53 Autodesk Fusion tips" reference video.
+
+## New projects and designs: save and name them at once
+A new Fusion design opens as "Untitled" and is not saved anywhere until someone saves it. Whenever you create a new project or design, save it under the requested name immediately, before modelling anything.
+
+1. **New project** (user asks for a project): create it in the active hub, e.g. `app.data.dataProjects.add(name)`, and make it the active project.
+2. **New design**: create the document, then save it straight away into that project's root folder (or the active project if none was named), e.g. `doc.saveAs(name, project.rootFolder, '', '')`. Use the Fusion MCP's own create/save tools if it offers them; otherwise run the Fusion API through its script or code tool.
+3. **Name**: use exactly the name the user gave. If they gave none, ask for one; if they say any name is fine, use `design-YYYY-MM-DD-HHMM`.
+4. **Check**: read back the active document's name and confirm it is no longer "Untitled" and shows as saved. Tell the user the project and design name.
+5. After that, save again (`doc.save('<short description>')`) at the end of each major modelling step so the timeline is never lost.
 
 ## Modelling workflow
 - Build parts as sketch + extrude. Sketch on existing faces when adding features.
