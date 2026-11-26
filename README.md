@@ -28,7 +28,7 @@ Fusion is reached through Autodesk's own Fusion MCP server, which is built into 
 powershell -ExecutionPolicy Bypass -File scripts\build-plugin.ps1
 ```
 
-(or `scripts/build-plugin.sh` on macOS/Linux). After changing a skill, bump `version` in `.claude-plugin/plugin.json`, rebuild, and re-add the plugin.
+(or `scripts/build-plugin.sh` on macOS/Linux). After changing anything, bump `version` in `.claude-plugin/plugin.json`, add an entry to [CHANGELOG.md](CHANGELOG.md), rebuild, and re-add the plugin.
 
 ## Safety
 

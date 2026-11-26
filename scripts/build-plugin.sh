@@ -5,5 +5,5 @@ cd "$(dirname "$0")/.."
 name=$(python3 -c 'import json;print(json.load(open(".claude-plugin/plugin.json"))["name"])')
 mkdir -p dist
 rm -f "dist/$name.plugin"
-zip -r -q "dist/$name.plugin" .claude-plugin skills .mcp.json README.md -x "*.DS_Store"
+zip -r -q "dist/$name.plugin" .claude-plugin skills .mcp.json README.md CHANGELOG.md -x "*.DS_Store"
 echo "Built dist/$name.plugin"
