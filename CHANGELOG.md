@@ -2,6 +2,13 @@
 
 Each change bumps the plugin version in `.claude-plugin/plugin.json`. Rebuild the zip after every bump.
 
+## 0.2.1 (2026-11-26)
+
+### Fixed
+- Opening a local file (STEP, STL and similar) no longer leaves an "Untitled" design: Claude names the new design after the file, then saves it.
+- When the Fusion hub has no projects, Claude says the design is not saved yet and offers to create a project, instead of failing on `activeProject`.
+- Project creation example now uses `app.data.activeHub.dataProjects.add(name)`.
+
 ## 0.2.0 (2026-11-26)
 
 ### Improved

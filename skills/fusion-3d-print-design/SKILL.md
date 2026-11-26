@@ -10,11 +10,13 @@ Follow these rules when building or reviewing a Fusion design. They come from Ha
 ## New projects and designs: save and name them at once
 A new Fusion design opens as "Untitled" and is not saved anywhere until someone saves it. Whenever you create a new project or design, save it under the requested name immediately, before modelling anything.
 
-1. **New project** (user asks for a project): create it in the active hub, e.g. `app.data.dataProjects.add(name)`, and make it the active project.
+1. **New project** (user asks for a project): create it in the active hub, e.g. `app.data.activeHub.dataProjects.add(name)`, and make it the active project.
 2. **New design**: create the document, then save it straight away into that project's root folder (or the active project if none was named), e.g. `doc.saveAs(name, project.rootFolder, '', '')`. Use the Fusion MCP's own create/save tools if it offers them; otherwise run the Fusion API through its script or code tool.
 3. **Name**: use exactly the name the user gave. If they gave none, ask for one; if they say any name is fine, use `design-YYYY-MM-DD-HHMM`.
 4. **Check**: read back the active document's name and confirm it is no longer "Untitled" and shows as saved. Tell the user the project and design name.
 5. After that, save again (`doc.save('<short description>')`) at the end of each major modelling step so the timeline is never lost.
+6. **Opening a local file** (STEP, STP, STL, IGES, F3D): Fusion imports it into a new design, which starts as "Untitled". Right after `importManager.importToNewDocument(...)`, set `doc.name` to the file name without its extension, then save it as in step 2 under that name.
+7. **No project to save into**: `app.data.activeProject` throws when the hub has no projects. Check `app.data.activeHub.dataProjects.count` first. If it is 0, keep the design named (step 6) but unsaved, and tell the user plainly that it is not saved yet and why. Offer to create a project; do not create one without asking.
 
 ## Modelling workflow
 - Build parts as sketch + extrude. Sketch on existing faces when adding features.
