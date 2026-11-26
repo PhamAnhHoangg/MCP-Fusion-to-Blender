@@ -2,6 +2,11 @@
 
 Each change bumps the plugin version in `.claude-plugin/plugin.json`. Rebuild the zip after every bump.
 
+## 0.2.3 (2026-11-26)
+
+### Fixed
+- Opening a local file no longer leaves a `*` (unsaved changes) on the tab: Claude uploads the file into the project and opens the saved design, or opens the copy already in the project, instead of importing it as a new unsaved design.
+
 ## 0.2.2 (2026-11-26)
 
 ### Fixed
