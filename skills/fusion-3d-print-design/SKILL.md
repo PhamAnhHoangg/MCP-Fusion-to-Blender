@@ -5,7 +5,7 @@ description: This skill should be used when designing, modifying or reviewing a 
 
 # Designing in Fusion for 3D printing
 
-Follow these rules when building or reviewing a Fusion design. They come from Hai's "53 Autodesk Fusion tips" reference video.
+Follow these rules when building or reviewing a Fusion design. They come from Hai's "53 Autodesk Fusion tips" reference video; `references/53-tips.md` maps all 53 tips to these rules. When the user asks how to do something by hand, teach the matching keyboard trick from that file (S menu, T sketch, L line, C circle, R rectangle, E extrude, Tab between fields, View Cube, grid snapping).
 
 ## New projects and designs: save and name them at once
 A new Fusion design opens as "Untitled" and is not saved anywhere until someone saves it. Whenever you create a new project or design, save it under the requested name immediately, before modelling anything.
@@ -55,6 +55,13 @@ Exports and copies saved to disk (STEP, STL, FBX for Blender, preview pictures) 
 - Drive key sizes with user parameters (`length`, `width`, `wall`) and expressions (`length = width / 2`) so the design can be resized later.
 - Fully constrain sketches (dimensions, midpoint, horizontal/vertical, diameter) before extruding.
 - Use construction lines for reference geometry; they never form profiles.
+- Know the constraints: coincident, collinear, concentric, midpoint, fix, parallel, perpendicular, horizontal/vertical, tangent, smooth, equal, symmetric, curvature. Prefer equal and symmetric over repeating dimensions.
+- Construction planes: offset, midplane, at an angle, tangent, and through an edge (`constructionPlanes.createInput().setByDistanceOnPath` or `setByTwoEdges`) when a feature must sit on or along an edge.
+- Small fixes to existing geometry: Move/Copy a face or body (`moveFeatures`) and Press Pull a face, rather than rebuilding.
+- Reference images: put a photo or drawing on a plane with Canvas (`canvases.add`) and calibrate it to a known length before tracing.
+- Gears: spur gears from the Spur Gear add-in or a parametric involute sketch (module, tooth count, pressure angle 20°); for advanced gears (helical, herringbone, bevel) use the add-in or a twisted Sweep or Loft. Print gears with 0.2 to 0.4 mm backlash.
+- Material and colour: set physical material for mass and appearance for colour (`body.material`, `body.appearance`) on every body before exporting to Blender, so the names carry over.
+- Realistic renders are done in Blender (see the blender-showcase skill), not Fusion's Render workspace.
 - Fix mistakes by editing the original step in the timeline, not by stacking new features on top.
 - Add fillets and chamfers to outside edges: they look better and make parts stronger.
 - Hollow parts with Shell. Cut a part exactly in half with a midplane construction plane + Split Body.
@@ -68,6 +75,8 @@ Exports and copies saved to disk (STEP, STL, FBX for Blender, preview pictures) 
 - Capture Position after dragging components if the new position should stick.
 - Couple joints with motion links (for example a 2:1 gear ratio).
 - Name every component clearly: the names survive export to Blender (see the fusion-to-blender skill).
+- Organize: group related bodies and components in browser folders, and hide what is not being worked on (`isLightBulbOn = False`); show everything again before exporting or measuring.
+- Find inside a design: search components and bodies by name (`rootComponent.allOccurrences`, `bRepBodies`) the way Find in Browser does, and report the path.
 
 ## 3D-printing rules
 - Overhangs: aim for 45 to 50 degrees from vertical; 60 is the practical limit and prints worse and slower.
@@ -79,5 +88,5 @@ Exports and copies saved to disk (STEP, STL, FBX for Blender, preview pictures) 
 - Export for printing with Save as Mesh, STL, refinement High.
 
 ## Check the work
-- After each major step, measure (bounding box, wall thickness, hole diameters) and compare with the request. Report the numbers.
+- After each major step, measure (bounding box, wall thickness, hole diameters, line lengths) and compare with the request. Report the numbers, and show a screenshot from the direction that faces the feature (the Look At view).
 - For standard screws and nuts, suggest importing models from McMaster-Carr rather than modelling them by hand.

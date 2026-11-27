@@ -2,6 +2,13 @@
 
 Each change bumps the plugin version in `.claude-plugin/plugin.json`. Add a row to the README's Changelog table and rebuild the zip after every bump.
 
+## 0.2.10 (2026-11-27)
+
+### Added
+- `references/53-tips.md`: all 53 tips from the reference video, each marked as a skill rule or a manual keyboard trick.
+- Rules for the tips that were missing: the full constraint list, construction planes on edges, Move/Press Pull fixes, Canvas reference images, spur and advanced gears, material and colour, grouping and hiding, finding inside a design, Look At screenshots.
+- Claude can teach the keyboard shortcuts (S, T, L, C, R, E, Tab, View Cube, grid snapping) when asked.
+
 ## 0.2.9 (2026-11-27)
 
 ### Added
