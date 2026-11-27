@@ -2,6 +2,11 @@
 
 Each change bumps the plugin version in `.claude-plugin/plugin.json`. Add a row to the README's Changelog table and rebuild the zip after every bump.
 
+## 0.2.9 (2026-11-27)
+
+### Added
+- Files saved to disk go under one `fusion2blender` folder, then a folder per project, then the same five folders as in Fusion (imports, parts, assemblies, print-ready, testing), with the same names.
+
 ## 0.2.8 (2026-11-26)
 
 ### Added

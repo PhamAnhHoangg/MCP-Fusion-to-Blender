@@ -32,6 +32,9 @@ Every design goes into a folder inside its project, never loose in the project r
 
 If it is unclear which folder fits, ask. When a design changes role (a test becomes a keeper, a part passes the print checks), move it with `dataFile.move(targetFolder)` and say so. Never delete or rename folders without asking.
 
+## Files on the user's computer
+Exports and copies saved to disk (STEP, STL, FBX for Blender, preview pictures) never go loose in a folder. They go in one top folder named `fusion2blender`, then a folder per project, then the same five folders as in Fusion: `fusion2blender/<project>/imports|parts|assemblies|print-ready|testing`, with the same names as the designs. Ask once where `fusion2blender` should live (on Hai's laptop, a drive other than C:) and reuse that place. Never write into a folder that holds the user's other files; create `fusion2blender` next to them instead.
+
 ## Finding and renaming designs
 - **Find**: walk every project in `app.data.activeHub` and every folder inside it, recursively, and match the text against `dataFile.name` (case-insensitive, part of the name is enough). Report each hit as `project/folder/name`. Use this over the MCP's document search, which can miss designs inside folders.
 - **Rename** only when the user asks: a saved design with `dataFile.name = new_name`, an unsaved tab with `doc.name = new_name`. First check that no other design in the same folder already has that name. Tell the user old name -> new name and update the list of designs Claude made.

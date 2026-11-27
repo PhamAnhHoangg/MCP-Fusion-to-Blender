@@ -36,6 +36,7 @@ Latest first. Full details in [CHANGELOG.md](CHANGELOG.md).
 
 | Version | Type | What changed |
 | --- | --- | --- |
+| 0.2.9 | Added | Files on disk go in `fusion2blender/<project>/` with the same five folders and names as in Fusion |
 | 0.2.8 | Added | Find designs by name in every project and folder; rename on request with a clash check; names follow `<project>-<component>-<large piece>-<version or date>` |
 | 0.2.7 | Added | Designs are sorted into project folders: imports, parts, assemblies, print-ready, testing |
 | 0.2.6 | Added | Claude lists every design it creates in order, keeps test designs in a `testing` folder, and asks before closing unsaved tabs |
